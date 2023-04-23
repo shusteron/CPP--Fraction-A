@@ -31,7 +31,7 @@ TEST_CASE("+ operator"){
 
 TEST_CASE("- operator"){
     Fraction a(1,2), b(2,4),c(5,3), x(1,2), y(2,3), w(-1,2),
-        d(1,0), j(17,-10), g(3,2);
+        d(1,1), j(17,-10), g(3,2);
    
     CHECK((a-b)==0.0);
     CHECK((1.0-a)==x);
