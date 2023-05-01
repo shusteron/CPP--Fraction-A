@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <sstream>
 #include "doctest.h"
 
 TEST_CASE("zero in denominator"){
@@ -31,7 +32,7 @@ TEST_CASE("+ operator"){
 
 TEST_CASE("- operator"){
     Fraction a(1,2), b(2,4),c(5,3), x(1,2), y(2,3), w(-1,2),
-        d(1,1), j(17,-10), g(3,2);
+        d(1,0), j(17,-10), g(3,2);
    
     CHECK((a-b)==0.0);
     CHECK((1.0-a)==x);
@@ -127,5 +128,18 @@ TEST_CASE("== operator"){
     CHECK((0.25==b)==true);
     CHECK((b==0.75)==false);
 }
+
+TEST_CASE("<< operator") {
+    Fraction a(1,2), b(2,10);
+    std::stringstream ostream;
+
+    ostream << a;
+    CHECK(ostream.str() == "1/2");
+
+    ostream.str("");
+    ostream << b;
+    CHECK(ostream.str() == "1/5");
+}
+
 
 
